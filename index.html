@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+
+<body>
+    <h1 id="loading"> Loading... </h1>      
+    <img id="loadingSpinner" draggable="false" src="./loadingScreen.gif"/>      
+    
+    <div id="everything">
+        <audio controls id="music" loop>
+            <source src="./res/PatakasWorld.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Start of Actual Body -->
+        <div id="ui-bar" class="overlay">
+            <h1 id="levelNum">1</h1>
+            <img draggable="false" id="timerImg" src="./img/timer.png" />
+            <h1 id="score"></h1>
+
+            <div id="interactiveButtons">
+                <img draggable="false" id="pauseButton" src="./img/pauseButton.png" />
+                <img draggable="false" id="resetButton" src="./img/resetButton.png" />
+                <img draggable="false" id="ffButton" src="./img/ffButton.png" />
+            </div>
+
+            <h3 id="levelTitle"></h3>
+        </div>
+
+        <div id="pausedMessage" class="overlay menu">
+            <h1 id="pausedText" class="overlay"> PAUSED </h1>
+            <img draggable="false" id="unpause" class="overlay hvr-pulse-grow" src="./img/postgame/continue.png">
+            <img draggable="false" class="mainmenu overlay hvr-pulse-grow" src="./img/postgame/mainmenu.png">
+            <img draggable="false" class="levelSelector overlay hvr-pulse-grow" src="./img/postgame/levelSelector.png">
+        </div>
+
+        <div id="instructions" class="overlay menu">
+            <h1 id="objective"> Objective: Kill <b><u>ALL</u></b> Hunters</h1>
+            <div class="tiles">
+                <div class="side">
+                    <p>You're a fox!</p>
+                    <img src="./img/foxIdle/foxIdle0.png" />
+                </div>
+                <div class="side">
+                    <p>Hunters will shoot ONLY if they see you...</p>
+                    <img src="./img/hunterIdle/hunterIdle0.png" />
+                </div>
+            </div>
+
+            <div  class="tiles">
+                <h2> Notes: </h2>
+                <ul>
+                    <li> Holding f will speed the game up!</li>
+                    <li> Press r to reset at any time!</li>
+                    <li> Level titles might provide hints... </li>
+                </ul>
+            </div>
+
+            <h2> Press Spacebar to begin your adventure!</h2>
+        </div>
+
+        <div id="game-lose" class="overlay menu">
+            <h1> Will reset in 3</h1>
+            <h2> Or press r to reset </h2>
+        </div>
+
+        <div id="game-win" class="overlay menu">
+            <div id="winStars">
+                <img id="star1" draggable="false" src="./img/postgame/star_yellow.png" />
+                <img id="star2" draggable="false" src="./img/postgame/star_grey.png" />
+                <img id="star3" draggable="false" src="./img/postgame/star_grey.png" />
+            </div>
+            <p id="winTime"> </p>
+            <img draggable="false" src="./img/postgame/replay.png" class="hvr-pulse-grow play-again" />
+            <img draggable="false" src="./img/postgame/mainmenu.png" class="hvr-pulse-grow mainmenu" />
+            <img draggable="false" id="continue" src="./img/postgame/continue.png" class="hvr-pulse-grow" />
+            <h3 id="continueText"> Press space to continue! </h3>
+        </div>
+
+        <div id="start" class="overlay menu">
+            <h2 id="mute"> 🔊 </h2>
+            <div id="buttons">
+                <img draggable="false" src="./img/pregame/play.png" data-levelNum="0" class="levelSelect hvr-pulse-grow" />
+                <img draggable="false" id="levelSelectMenu" src="./img/pregame/levelSelectButton.png" class="hvr-pulse-grow" />
+            </div>
+
+            <div id="misc">
+                <p id="privacy"> Privacy Policy </p>
+                <p id="credits"> Credits </p>
+            </div>
+
+            <div id="privacyScreen" class="overlay menu">
+                <h1>Privacy</h1>
+                <h1 class="closeScreen">✘</h1>
+                <div id="morePrivacy">
+                    <p> If you're reading this, it's because you want to know: (1) what data we may be logging; (2) why we are logging this; (3) security of your own information.
+                        In order to make improvements and provide the best possible experience, this game anonymously records user interactions and IP addresses. No personal information is recorded.
+                        If you still have questions or concerns after reading this, please contact us at <a href="mailto:eland@cs.cornell.edu">eland@cs.cornell.edu</a>
+                    </p>
+
+                    <h2> Information We Track</h2>
+                    <p> 
+                        In this game, we actively log information such as:
+                        <ul>
+                            <li> Playtime </li>
+                            <li> Death Locations </li>
+                            <li> Enemy Deaths </li>
+                            <li> Mute/Unmute </li>
+                            <li> and other game related data...</li>
+                        </ul>
+
+                        We do not log any personally-identifiable information. Each session is given a random UUID.
+                    </p>
+
+                    <h2> How We Use This Information</h2>
+                    <p> 
+                        We are currently using the data as part of our course at Cornell University, CS4154: Analytics-Driven Game Design.
+                        We generate heatmaps (of player deaths), burndown charts, and state transition diagrams. These logistics help us improve our game and find ways to make the game less frustrating for players.
+                        No information gathered via this game will be shared or made public outside of the course.
+                    </p>
+                </div>
+            </div>
+
+            <div id="creditsScreen" class="overlay menu">
+                <h1>Credits</h1>
+                <h1 class="closeScreen">✘</h1>
+                <div id="moreCredits">
+                    <h2> Game Engine </h2>
+                    <p> 
+                        Parts of our game engine were based off of the example given by James Long, on his article <a href="http://jlongster.com/Making-Sprite-based-Games-with-Canvas">"Making Sprite-based Games with Canvas" </a>.
+                        We've rewritten/updated many parts of the original code but would still like to give credit to the inspiration.
+                    </p>
+
+                    <h2> Music </h2>
+                    <p>
+                        The music is <a href="https://www.dl-sounds.com/royalty-free/patakas-world/">"Patakas World"</a> from DL Sounds. 
+                    </p>
+
+                    <h2> Title Font </h2>
+                    <p> The font used on the title screen is Visual Magnets by Xerographer Fonts! </p>
+
+                    <h2> Inspiration</h2>
+                    <p> We'd like to thank <a href="mailto:eland@cs.cornell.edu">Erik Andersen</a> for his support in the creation of this game! 
+                        This game would not be possible without CS4154: Analytics-Driven Game Design. Much thanks also goes out to his TAs, <a href="mailto:zw385@cs.cornell.edu"> Zikai Wen </a> and <a href="mailto:rundongwu@cs.cornell.edu">Rundong Wu</a>! 
+                        All of their feedback during early iterations of the game were incredibly helpful.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="levelSelect" class="overlay menu">
+            <img id="back" draggable="false" src="./img/pregame/levelSelect/back.png" class="hvr-pulse-grow" />
+
+            <div id="levelTiles">
+                <!-- Level titles will be dynamically loaded based off of the number of levels-->
+            </div>
+        </div>
+
+        <div class="menu">
+            <img draggable="false" id="mirrorTutorial" class="overlay tutorial" src="./img/mirrorTutorial/mirrorTutorial.gif">
+            <img draggable="false" id="portalTutorial" class="overlay tutorial" src="./img/portalTutorial/portalTutorial.gif">
+            <img draggable="false" id="hostageTutorial" class="overlay tutorial" src="./img/hostageTutorial/hostageTutorial.gif">
+            <img draggable="false" id="hunterTutorial" class="overlay tutorial" src="./img/hunterTutorial/hunterTutorial.gif">
+        </div>
+
+        <div id="moveInstructions" class="overlay menu">
+            <h2> Move to begin the level! </h2>
+        </div>
+       
+    </div>
+
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+
+</html>

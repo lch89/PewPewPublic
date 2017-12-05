@@ -1,0 +1,365 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 680px;
+  width: 800px;
+  overflow: hidden;
+  background-color: white;
+}
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+audio {
+  display: none;
+}
+canvas {
+  background-color: white;
+  display: none;
+  margin: 0;
+  margin-top: 80px;
+  position: absolute;
+  z-index: 1;
+}
+/* For anything that needs to be on top of the canvas*/
+.overlay {
+  z-index: 2;
+}
+#everything {
+  display: none;
+}
+#loading {
+  margin-top: 280px;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 60px;
+  width: 100%;
+  color: #8EC9F9;
+}
+#loadingSpinner {
+  display: inline-block;
+  margin-left: 320px;
+  margin-top: -20px;
+}
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 600px;
+  margin-top: 80px;
+  text-align: center;
+}
+#start {
+  background-image: url("../img/pregame/background.png");
+  background-repeat: no-repeat;
+  height: 680px;
+  margin-top: 0px;
+}
+#start #mute {
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  text-align: right;
+  margin-right: 20px;
+}
+#start #mute:hover {
+  cursor: pointer;
+}
+#start #buttons {
+  width: 100%;
+  position: absolute;
+  bottom: 80px;
+}
+#start #buttons .levelSelect {
+  width: 30%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+#game-lose {
+  display: none;
+  background-image: url("../img/postgame/lose_condition_fox.png");
+}
+#game-lose h1 {
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  position: absolute;
+  bottom: 240px;
+  left: 37%;
+}
+#game-lose h2 {
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  position: absolute;
+  bottom: 220px;
+  left: 37%;
+}
+#game-win {
+  display: none;
+  background-image: url("../img/postgame/win_condition_new.png");
+}
+#game-win .play-again {
+  position: absolute;
+  bottom: 165px;
+  left: 32%;
+  width: 10%;
+}
+#game-win .mainmenu {
+  position: absolute;
+  bottom: 165px;
+  left: 45%;
+  width: 10%;
+}
+#game-win #continue {
+  position: absolute;
+  bottom: 165px;
+  left: 58%;
+  width: 10%;
+}
+#game-win #winTime {
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  position: absolute;
+  bottom: 200px;
+  left: 300px;
+  font-size: 40px;
+}
+#game-win #continueText {
+  position: absolute;
+  left: 37.5%;
+  bottom: 125px;
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+}
+#game-win #winStars {
+  display: none;
+}
+#game-win #winStars img {
+  height: 95px;
+  position: absolute;
+  top: 220px;
+}
+#game-win #winStars #star1 {
+  left: 260px;
+}
+#game-win #winStars #star2 {
+  left: 350px;
+  top: 190px;
+}
+#game-win #winStars #star3 {
+  left: 440px;
+}
+#ui-bar {
+  width: 800px;
+  height: 80px;
+  background-image: url("../img/uiBar.png");
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  display: none;
+  position: absolute;
+  top: 0;
+}
+#ui-bar h1 {
+  font-size: 34px;
+  margin: 0;
+  padding: 0;
+  display: inline;
+  padding-right: 20px;
+}
+#ui-bar h1:first-of-type {
+  margin-left: 180px;
+}
+#ui-bar #interactiveButtons {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+}
+#ui-bar #levelTitle {
+  color: #8EC9F9;
+  text-shadow: 2px 2px 4px #000000;
+  margin-left: 45px;
+  margin-top: 20px;
+}
+#pausedMessage {
+  display: none;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+#pausedMessage #pausedText {
+  font-size: 55px;
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  position: absolute;
+  left: 300px;
+  top: 10px;
+}
+#pausedMessage #unpause {
+  position: absolute;
+  top: 240px;
+  left: 260px;
+}
+#pausedMessage .mainmenu {
+  position: absolute;
+  top: 240px;
+  left: 360px;
+}
+#pausedMessage .levelSelector {
+  position: absolute;
+  top: 240px;
+  left: 460px;
+}
+#instructions {
+  display: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+#instructions .side {
+  float: left;
+  width: 29%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+#instructions .tiles {
+  display: inline-block;
+  width: 100%;
+}
+#instructions li {
+  list-style-type: none;
+}
+#instructions #objective {
+  margin-top: 50px;
+}
+#timerImg {
+  height: 40%;
+  padding-top: 20px;
+}
+#levelSelect {
+  display: none;
+  background-image: url("../img/pregame/levelSelect/levelSelectScreen.png");
+  height: 680px;
+  margin-top: 0px;
+}
+#levelSelect #back {
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  width: 75px;
+}
+#levelSelect #levelTiles {
+  padding-top: 180px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#levelSelect #levelTiles .levelSelect {
+  width: 15%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  position: relative;
+  text-align: center;
+}
+#levelSelect #levelTiles .tile {
+  position: relative;
+  width: 100%;
+  /* for IE 6 */
+}
+#levelSelect #levelTiles .tileNumber {
+  font-family: 'Permanent Marker', cursive;
+  color: #3E3A36;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.tutorial {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#misc {
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#misc p {
+  float: left;
+  margin-right: 20px;
+}
+#misc p:hover {
+  cursor: pointer;
+}
+#privacyScreen {
+  display: none;
+  background-color: grey;
+  color: white;
+  max-width: 680px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding: 60px;
+  max-height: 680px;
+  margin-top: 0px;
+}
+#privacyScreen #morePrivacy {
+  text-align: left;
+  margin-top: 20px;
+}
+#creditsScreen {
+  display: none;
+  background-color: grey;
+  color: white;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding: 60px;
+  padding-top: 10px;
+  max-height: 680px;
+  max-width: 680px;
+  margin-top: 0px;
+}
+#creditsScreen #moreCredits {
+  text-align: left;
+  margin-top: 20px;
+}
+.closeScreen {
+  position: absolute;
+  top: 0;
+  right: 40px;
+}
+.closeScreen:hover {
+  cursor: pointer;
+}
+@-webkit-keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+@keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+#moveInstructions {
+  display: none;
+}
+#moveInstructions h2 {
+  color: #8EC9F9;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 40px;
+  margin-top: 160px;
+  font-family: 'Permanent Marker', cursive;
+  -webkit-animation-name: hvr-pulse-grow;
+  animation-name: hvr-pulse-grow;
+  -webkit-animation-duration: 1.0s;
+  animation-duration: 1.0s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
